@@ -1,5 +1,5 @@
 # EFOPT
-An **E**fficient **F**easibility-First **Opt**imization.
+An **E**fficient **F**easibility-Assured **Opt**imization.
 
 ## Introduction
 EFOPT is a C++ package for constrained nonlinear optimization. It solves mathematical optimization problems of the form
