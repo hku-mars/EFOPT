@@ -1,0 +1,24 @@
+{
+    "verbose": true,
+    "print_iteration": true,
+    "penalty_init": 1000.0,
+    "penalty_scale": 10.0,
+    "max_penalty_iterations": 8,
+    "max_convexify_iterations": 40,
+    "extra_iterations": 10,
+    "trust_region_init": 1.0,
+    "trust_region_expand": 2.0,
+    "trust_region_shrink": 0.75,
+    "model_quality_low": 0.25,
+    "model_quality_high": 0.75,
+    "xtol_coarse": 0.01,
+    "ftol_coarse": 0.01,
+    "ctol_coarse": 0.01,
+    "xtol_fine": 0.0001,
+    "ftol_fine": 0.0001,
+    "ctol_fine": 0.0001,
+    "trs_params": {
+        "max_iterations": 128,
+        "tolerance": 1e-8
+    }
+}
