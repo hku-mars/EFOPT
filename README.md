@@ -1,7 +1,19 @@
-
 # EFOPT: Efficient Nonlinear Optimization Solver
 
-EFOPT is an efficient sequential convex programming solver for nonlinear optimization problems with constraints. It implements the EFOPT algorithm with trust region methods and penalty functions for handling constraints.
+EFOPT is an efficient sequential convex programming solver for nonlinear optimization problems with constraints. It implements the EFOPT algorithm with trust region methods and penalty functions for handling constraints. For more technical details, please refer to our paper on IEEE T-RO: [Autonomous tail-sitter flights in unknown environments](https://arxiv.org/abs/2411.15003).
+If you use EFOPT in your research, please cite our work:
+
+```
+@article{lu2025autonomous,
+  title={Autonomous tail-sitter flights in unknown environments},
+  author={Lu, Guozheng and Ren, Yunfan and Zhu, Fangcheng and Li, Haotian and Xue, Ruize and Cai, Yixi and Lyu, Ximin and Zhang, Fu},
+  journal={IEEE Transactions on Robotics},
+  volume={41},
+  pages={1098--1117},
+  year={2025},
+  publisher={IEEE}
+}
+```
 
 ## New Features (v2.0)
 
@@ -35,6 +47,7 @@ EFOPT implements the algorithm described in the pseudocode with the following ke
 ## Installation
 
 ### Prerequisites
+
 - C++17 compatible compiler
 - Eigen3 (version 3.3 or higher)
 - CMake (version 3.14 or higher)
@@ -61,6 +74,7 @@ target_link_libraries(your_target PRIVATE efopt::efopt)
 ## Quick Start
 
 ### Option 1: Use default parameters
+
 ```cpp
 #include <efopt/efopt.hpp>
 
@@ -114,6 +128,7 @@ int main() {
 ```
 
 ### Option 2: Load parameters from JSON
+
 ```cpp
 // Load from JSON object
 efopt::json params_json = {
@@ -128,6 +143,7 @@ efopt::Parameters params = efopt::Parameters::from_json_file("config.json");
 ```
 
 ## JSON Configuration Example (`config.json`)
+
 ```json
 {
     "verbose": true,
@@ -156,30 +172,30 @@ efopt::Parameters params = efopt::Parameters::from_json_file("config.json");
 
 ## Parameters
 
-| Parameter | Description | Default |
-|-----------|-------------|---------|
-| `verbose` | Print optimization progress | false |
-| `penalty_init` | Initial penalty coefficient | 1e3 |
-| `penalty_scale` | Penalty scaling factor | 10.0 |
-| `max_penalty_iterations` | Maximum penalty loop iterations | 8 |
-| `max_convexify_iterations` | Maximum inner loop iterations | 40 |
-| `trust_region_init` | Initial trust region radius | 1.0 |
-| `trust_region_expand` | Trust region expansion factor | 2.0 |
-| `trust_region_shrink` | Trust region shrinkage factor | 0.75 |
-| `model_quality_low` | Threshold for shrinking trust region | 0.25 |
-| `model_quality_high` | Threshold for expanding trust region | 0.75 |
-| `xtol_coarse`, `ftol_coarse`, `ctol_coarse` | First-stage thresholds | 1e-2 |
-| `xtol_fine`, `ftol_fine`, `ctol_fine` | Second-stage thresholds | 1e-4 |
+| Parameter                                         | Description                          | Default |
+| ------------------------------------------------- | ------------------------------------ | ------- |
+| `verbose`                                       | Print optimization progress          | false   |
+| `penalty_init`                                  | Initial penalty coefficient          | 1e3     |
+| `penalty_scale`                                 | Penalty scaling factor               | 10.0    |
+| `max_penalty_iterations`                        | Maximum penalty loop iterations      | 8       |
+| `max_convexify_iterations`                      | Maximum inner loop iterations        | 40      |
+| `trust_region_init`                             | Initial trust region radius          | 1.0     |
+| `trust_region_expand`                           | Trust region expansion factor        | 2.0     |
+| `trust_region_shrink`                           | Trust region shrinkage factor        | 0.75    |
+| `model_quality_low`                             | Threshold for shrinking trust region | 0.25    |
+| `model_quality_high`                            | Threshold for expanding trust region | 0.75    |
+| `xtol_coarse`, `ftol_coarse`, `ctol_coarse` | First-stage thresholds               | 1e-2    |
+| `xtol_fine`, `ftol_fine`, `ctol_fine`       | Second-stage thresholds              | 1e-4    |
 
 ## Status Codes
 
-| Code | Description |
-|------|-------------|
-| 1 | Success |
-| 2 | Converged due to x tolerance |
-| 3 | Converged due to function tolerance |
-| 4 | Converged due to constraint tolerance |
-| Negative values | Errors |
+| Code            | Description                           |
+| --------------- | ------------------------------------- |
+| 1               | Success                               |
+| 2               | Converged due to x tolerance          |
+| 3               | Converged due to function tolerance   |
+| 4               | Converged due to constraint tolerance |
+| Negative values | Errors                                |
 
 ## Running Tests
 
@@ -189,6 +205,7 @@ cd build
 ```
 
 The test suite includes:
+
 1. JSON parameter loading test
 2. Rosenbrock function with equality constraint test
 3. Nonconvex function with inequality constraint test
